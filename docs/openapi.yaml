@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: API – MyKine (MVP)
+  version: 0.1.0
+servers:
+  - url: https://api.example.com
+paths:
+  /appointments:
+    get:
+      summary: Lista turnos
+      parameters:
+        - in: query
+          name: from
+          schema: { type: string, format: date-time }
+        - in: query
+          name: to
+          schema: { type: string, format: date-time }
+      responses: { '200': { description: OK } }
+    post:
+      summary: Crea turno
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppointmentCreate'
+      responses: { '201': { description: Creado } }
+components:
+  schemas:
+    AppointmentCreate:
+      type: object
+      required: [patient_id, professional_id, start_at]
+      properties:
+        patient_id: { type: string }
+        professional_id: { type: string }
+        start_at: { type: string, format: date-time }
