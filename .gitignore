@@ -1,0 +1,18 @@
+# General
+.DS_Store
+.env
+.idea
+.vscode/*
+!.vscode/settings.json
+
+# Node / Deno
+node_modules/
+dist/
+
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
